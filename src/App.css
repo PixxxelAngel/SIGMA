@@ -18,7 +18,7 @@
 }
 
 .logo {
-  width: clamp(80px, 18vw, 160px);
+  width: clamp(400px, 18vw, 160px);
   height: auto;
   display: block;
   margin-bottom: 20px;
