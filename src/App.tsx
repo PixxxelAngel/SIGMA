@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AiOutlineMail } from 'react-icons/ai'
 import { FaWhatsapp } from 'react-icons/fa'
+import { PiInstagramLogoBold } from 'react-icons/pi'
 import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
 import logo from './assets/logo.png'
 import './App.css'
@@ -53,6 +54,10 @@ function App() {
             <a href="https://wa.me/573128170205" target="_blank" rel="noreferrer" className="contact-item">
               <FaWhatsapp className="contact-item-icon" aria-hidden="true" />
               WhatsApp
+            </a>
+            <a href="https://instagram.com/sigmahseq" target="_blank" rel="noreferrer" className="contact-item">
+              <PiInstagramLogoBold className="contact-item-icon" aria-hidden="true" />
+              @sigmahseq
             </a>
           </div>
         )}
