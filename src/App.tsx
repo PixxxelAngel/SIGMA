@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { AiOutlineMail } from 'react-icons/ai'
+import { FaWhatsapp } from 'react-icons/fa'
 import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
 import logo from './assets/logo.png'
 import './App.css'
@@ -48,6 +49,10 @@ function App() {
             <a href="tel:+573128170205" className="contact-item">
               <MdOutlineLocalPhone className="contact-item-icon" aria-hidden="true" />
               +57 312 817 02 05
+            </a>
+            <a href="https://wa.me/573128170205" target="_blank" rel="noreferrer" className="contact-item">
+              <FaWhatsapp className="contact-item-icon" aria-hidden="true" />
+              WhatsApp
             </a>
           </div>
         )}
