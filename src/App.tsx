@@ -1,8 +1,13 @@
+import { useState } from 'react'
+import { AiOutlineMail } from 'react-icons/ai'
+import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
 import logo from './assets/logo.png'
 import './App.css'
 
 
 function App() {
+  const [contactOpen, setContactOpen] = useState(false)
+
   return (
 
     <div className="page">
@@ -31,6 +36,32 @@ function App() {
           <li>Investigación de accidentes de trabajo leves, graves y/o fatales</li>        
           <li>Plan de gestión Ambiental</li>
         </ul>
+      </div>
+
+      <div className="floating-contact">
+        {contactOpen && (
+          <div className="floating-contact-menu" id="contact-menu">
+            <a href="mailto:sigma.hseqconsulting@gmail.com" className="contact-item">
+              <AiOutlineMail className="contact-item-icon" aria-hidden="true" />
+              sigma.hseqconsulting@gmail.com
+            </a>
+            <a href="tel:+573128170205" className="contact-item">
+              <MdOutlineLocalPhone className="contact-item-icon" aria-hidden="true" />
+              +57 312 817 02 05
+            </a>
+          </div>
+        )}
+
+        <button
+          type="button"
+          className="floating-contact-button"
+          aria-expanded={contactOpen}
+          aria-controls="contact-menu"
+          onClick={() => setContactOpen((open) => !open)}
+        >
+          <span>Contáctanos</span>
+          <MdOutlineSupportAgent className="contact-button-icon" aria-hidden="true" />
+        </button>
       </div>
 
     </div>
