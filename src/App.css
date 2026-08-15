@@ -75,6 +75,94 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.glow-panel {
+  position: relative;
+  width: min(100%, 560px);
+  padding: 2px;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(181, 96, 255, 0.92),
+    rgba(94, 132, 255, 0.8),
+    rgba(170, 128, 255, 0.9),
+    rgba(255, 255, 255, 0.18)
+  );
+  box-shadow:
+    0 0 16px rgba(176, 122, 255, 0.8),
+    0 0 28px rgba(118, 104, 255, 0.55),
+    0 0 52px rgba(92, 70, 255, 0.38);
+  animation: borderGlow 3s linear infinite;
+  overflow: hidden;
+}
+
+.glow-panel::before {
+  content: "";
+  position: absolute;
+  inset: -45% 8%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), rgba(208, 182, 255, 0.8), transparent);
+  transform: translateX(-130%) rotate(12deg);
+  animation: lightSweep 3.2s ease-in-out infinite;
+}
+
+.glow-panel-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(24, 11, 43, 0.96), rgba(52, 33, 93, 0.82) 42%, rgba(61, 96, 190, 0.74));
+  padding: 26px 30px;
+  text-align: center;
+  border: 1px solid rgba(196, 174, 255, 0.2);
+}
+
+.glow-panel-title {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 2.3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  color: #f4ebff;
+  text-shadow: 0 0 10px rgba(203, 178, 255, 0.35);
+}
+
+.glow-panel-subtitle {
+  margin: 10px 0 0;
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(235, 224, 255, 0.82);
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(176, 122, 255, 0.7), 0 0 28px rgba(118, 104, 255, 0.45), 0 0 52px rgba(92, 70, 255, 0.32);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(207, 170, 255, 0.9), 0 0 38px rgba(133, 121, 255, 0.62), 0 0 70px rgba(96, 82, 255, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(176, 122, 255, 0.7), 0 0 28px rgba(118, 104, 255, 0.45), 0 0 52px rgba(92, 70, 255, 0.32);
+  }
+}
+
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-120%) rotate(12deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(120%) rotate(12deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%) rotate(12deg);
+    opacity: 0;
+  }
+}
+
 .floating-contact {
   position: fixed;
   right: 22px;
@@ -162,6 +250,10 @@
   .gestion-organizacional {
     width: 100%;
     padding: 22px 18px;
+  }
+
+  .glow-panel {
+    width: 100%;
   }
 
   .floating-contact {

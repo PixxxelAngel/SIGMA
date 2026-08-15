@@ -51,6 +51,13 @@ function App() {
         </ul>
       </div>
 
+      <div className="glow-panel">
+        <div className="glow-panel-inner">
+          <h3 className="glow-panel-title">AUDITORÍAS DE CUMPLIMIENTOS</h3>
+          <p className="glow-panel-subtitle">(ISO - SGSST - PESV)</p>
+        </div>
+      </div>
+
       <div className="floating-contact">
         {contactOpen && (
           <div className="floating-contact-menu" id="contact-menu">
