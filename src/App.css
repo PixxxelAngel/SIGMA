@@ -45,7 +45,8 @@
   text-align: center;
 }
 
-.services {
+.services,
+.gestion-organizacional {
   width: min(100%, 900px);
   margin-top: 40px;
   padding: 28px 32px;
@@ -55,14 +56,16 @@
   backdrop-filter: blur(8px);
 }
 
-.services-title {
+.services-title,
+.gestion-organizacional-title {
   margin: 0 0 18px;
   font-size: clamp(1.4rem, 3vw, 2rem);
   line-height: 1.2;
   text-align: center;
 }
 
-.services-list {
+.services-list,
+.gestion-organizacional-list {
   margin: 0;
   padding-left: 1.25rem;
   display: grid;
@@ -155,7 +158,8 @@
     max-width: 100%;
   }
 
-  .services {
+  .services,
+  .gestion-organizacional {
     width: 100%;
     padding: 22px 18px;
   }

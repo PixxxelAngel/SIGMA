@@ -35,8 +35,19 @@ function App() {
           <li>Implementación de Planes de Prevención, Preparación y Respuesta ante Emergencias (PPPRE)</li>
           <li>Elaboración del plan de Emergencias, Contingencias y Ayuda Mutua</li>
           <li>Asesoría en la conformación, formación y entrenamiento de grupos de apoyo de emergencias</li>
-          <li>Investigación de accidentes de trabajo leves, graves y/o fatales</li>        
+          <li>Investigación de accidentes de trabajo leves, graves y/o fatales</li>
           <li>Plan de gestión Ambiental</li>
+        </ul>
+      </div>
+
+      <div className="gestion-organizacional">
+        <h2 className="gestion-organizacional-title">Gestión Organizacional</h2>
+        <ul className="gestion-organizacional-list">
+          <li>Estilos de vida y trabajo saludable</li>
+          <li>Organizaciones felices - Intervención</li>
+          <li>Clima organizacional</li>
+          <li>Comunicación asertiva, efectiva y empática</li>
+          <li>Liderazgo - Trabajo en equipo</li>
         </ul>
       </div>
 
@@ -61,6 +72,9 @@ function App() {
             </a>
           </div>
         )}
+
+
+
 
         <button
           type="button"
