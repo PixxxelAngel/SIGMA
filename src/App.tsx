@@ -58,6 +58,43 @@ function App() {
         </div>
       </div>
 
+      <div className="virtual-reality">
+        <div className="virtual-reality-header">
+          <h2 className="virtual-reality-title">SIMULACIONES INMERSIVAS CON REALIDAD VIRTUAL</h2>
+          <p className="virtual-reality-subtitle">Entrenamiento de alto impacto para prevención y seguridad laboral</p>
+        </div>
+
+        <ul className="virtual-reality-grid">
+          <li className="virtual-card card-1">
+            <span className="virtual-card-label">Alturas seguras</span>
+          </li>
+          <li className="virtual-card card-2">
+            <span className="virtual-card-label">Espacios confinados</span>
+          </li>
+          <li className="virtual-card card-3">
+            <span className="virtual-card-label">Riesgos eléctricos</span>
+          </li>
+          <li className="virtual-card card-4">
+            <span className="virtual-card-label">Emergencias simuladas</span>
+          </li>
+          <li className="virtual-card card-5">
+            <span className="virtual-card-label">Seguridad laboral</span>
+          </li>
+          <li className="virtual-card card-6">
+            <span className="virtual-card-label">Trabajo seguro</span>
+          </li>
+          <li className="virtual-card card-7">
+            <span className="virtual-card-label">Riesgos críticos</span>
+          </li>
+          <li className="virtual-card card-8">
+            <span className="virtual-card-label">Rescate técnico</span>
+          </li>
+          <li className="virtual-card card-9">
+            <span className="virtual-card-label">PPE correcto</span>
+          </li>
+        </ul>
+      </div>
+
       <div className="floating-contact">
         {contactOpen && (
           <div className="floating-contact-menu" id="contact-menu">
