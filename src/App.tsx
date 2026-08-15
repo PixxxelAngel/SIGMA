@@ -6,9 +6,48 @@ import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
 import logo from './assets/logo.png'
 import './App.css'
 
+const virtualCards = [
+  {
+    title: 'Alturas',
+    image: 'https://images.unsplash.com/photo-1587582423116-ec07293f0395?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Espacios Confinados',
+    image: 'https://images.unsplash.com/photo-1569156519699-a1b73fa3cb70?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Eléctrico (LOTO)',
+    image: 'https://images.unsplash.com/photo-1786372282128-a73d0b1ece98?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'EPP',
+    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Ergonomía',
+    image: 'https://images.unsplash.com/photo-1768926968986-a88590ce5025?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Manejo de Extintores',
+    image: 'https://images.unsplash.com/photo-1716009441550-463ee99f80f7?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Seguridad Vial',
+    image: 'https://images.unsplash.com/photo-1602951172321-fe0aa8865e6b?auto=format&fit=crop&w=900&q=80',
+  },
+]
 
 function App() {
   const [contactOpen, setContactOpen] = useState(false)
+  const [selectedIndex, setSelectedIndex] = useState(3)
+
+  const orderedCards = Array.from({ length: virtualCards.length }, (_, offset) => {
+    const cardIndex = (selectedIndex + offset - 3 + virtualCards.length) % virtualCards.length
+    return {
+      ...virtualCards[cardIndex],
+      originalIndex: cardIndex,
+    }
+  })
 
   return (
 
@@ -64,35 +103,45 @@ function App() {
           <p className="virtual-reality-subtitle">Entrenamiento de alto impacto para prevención y seguridad laboral</p>
         </div>
 
-        <ul className="virtual-reality-grid">
-          <li className="virtual-card card-1">
-            <span className="virtual-card-label">Alturas seguras</span>
-          </li>
-          <li className="virtual-card card-2">
-            <span className="virtual-card-label">Espacios confinados</span>
-          </li>
-          <li className="virtual-card card-3">
-            <span className="virtual-card-label">Riesgos eléctricos</span>
-          </li>
-          <li className="virtual-card card-4">
-            <span className="virtual-card-label">Emergencias simuladas</span>
-          </li>
-          <li className="virtual-card card-5">
-            <span className="virtual-card-label">Seguridad laboral</span>
-          </li>
-          <li className="virtual-card card-6">
-            <span className="virtual-card-label">Trabajo seguro</span>
-          </li>
-          <li className="virtual-card card-7">
-            <span className="virtual-card-label">Riesgos críticos</span>
-          </li>
-          <li className="virtual-card card-8">
-            <span className="virtual-card-label">Rescate técnico</span>
-          </li>
-          <li className="virtual-card card-9">
-            <span className="virtual-card-label">PPE correcto</span>
-          </li>
-        </ul>
+        <div className="virtual-reality-grid">
+          <ul className="virtual-reality-track">
+            {orderedCards.map((card, offset) => {
+              const isCenter = offset === 3
+              const isNear = Math.abs(offset - 3) === 1
+              const isFar = Math.abs(offset - 3) >= 2
+
+              const className = [
+                'virtual-card',
+                isCenter ? 'is-center' : '',
+                isNear ? 'is-near' : '',
+                isFar ? 'is-far' : '',
+                card.title === 'EPP' ? 'epp-card' : '',
+                card.title === 'Seguridad Vial' ? 'seguridad-vial-card' : '',
+              ]
+                .filter(Boolean)
+                .join(' ')
+
+              return (
+                <li
+                  key={`${card.title}-${offset}`}
+                  className={className}
+                  style={{ backgroundImage: `linear-gradient(135deg, rgba(255, 216, 97, 0.18), rgba(118, 83, 255, 0.42)), url('${card.image}')` }}
+                  onClick={() => setSelectedIndex(card.originalIndex)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      setSelectedIndex(card.originalIndex)
+                    }
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={card.title}
+                >
+                  <span className="virtual-card-label">{card.title}</span>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
 
       <div className="floating-contact">
