@@ -167,6 +167,8 @@ body {
 .virtual-card.is-center {
   flex-basis: 280px;
   min-height: 330px;
+  margin-left: 15px;
+  margin-right: 15px;
   opacity: 1;
   filter: saturate(1.1) brightness(1.04);
   transform: scale(1.04) translateY(-10px);
