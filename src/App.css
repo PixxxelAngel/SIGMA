@@ -186,24 +186,33 @@
 }
 
 .virtual-card-label {
-  position: relative;
+  position: absolute;
   z-index: 1;
-  display: inline-flex;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 110px;
-  max-width: 100%;
-  padding: 8px 12px;
-  border-radius: 999px;
+
+  padding: 16px 12px;
+
   background: rgba(255, 204, 0, 0.15);
- 
   color: #ffe97a;
+
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-align: center;
   line-height: 1.2;
+
+  border-radius: 0 0 23px 23px;
 }
 
 .virtual-card.epp-card {
