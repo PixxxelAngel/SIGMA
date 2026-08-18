@@ -420,8 +420,7 @@
   background: rgba(37, 211, 102, 0.2);
 }
 
-@media (max-height: 600px) and (orientation: landscape) {
-
+@media (max-width: 600px) {
   .page {
     padding: 20px 16px 28px;
     align-items: flex-start;
@@ -451,12 +450,12 @@
     overflow: hidden;
   }
 
-  .virtual-reality-track {
-    gap: 10px;
-    width: 100%;
+  .virtual-reality-track { 
+    gap: 10px; 
+    width: max-content;
     justify-content: center;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: calc(50vw - 105px);
+    padding-right: calc(50vw - 105px);
   }
 
   .virtual-card {
