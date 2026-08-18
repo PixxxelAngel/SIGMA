@@ -420,7 +420,8 @@
   background: rgba(37, 211, 102, 0.2);
 }
 
-@media (max-width: 600px) {
+@media (max-height: 600px) and (orientation: landscape) {
+
   .page {
     padding: 20px 16px 28px;
     align-items: flex-start;
