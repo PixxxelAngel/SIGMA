@@ -452,9 +452,10 @@
 
   .virtual-reality-track {
     gap: 10px;
-    width: max-content;
-    padding-left: calc(50vw - 105px);
-    padding-right: calc(50vw - 105px);
+    width: 100%;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .virtual-card {
