@@ -2,13 +2,12 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
 }
 
 .page {
   min-height: 100dvh;
   width: 100%;
-  background-color: black;
+  background-color: rgb(2, 0, 45);
   color: white;
   display: flex;
   flex-direction: column;
@@ -121,7 +120,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  min-height: 360px;
+  min-height: 400px;
   position: relative;
 }
 
@@ -171,7 +170,7 @@ body {
   margin-right: 15px;
   opacity: 1;
   filter: saturate(1.1) brightness(1.04);
-  transform: scale(1.04) translateY(-10px);
+  transform: scale(1.02) translateY(-10px);
   z-index: 2;
   box-shadow: 0 22px 40px rgba(0, 0, 0, 0.48), 0 0 22px rgba(255, 204, 0, 0.18);
 }
