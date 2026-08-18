@@ -1,5 +1,6 @@
 .page {
-  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
   background-color: black;
   color: white;
   display: flex;
@@ -419,6 +420,10 @@
 .contact-item:hover {
   background: rgba(37, 211, 102, 0.2);
 }
+
+
+
+/* Celulares */
 
 @media (max-width: 600px), (max-height: 600px) and (orientation: landscape) {
   .page {
