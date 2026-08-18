@@ -10,30 +10,41 @@ const virtualCards = [
   {
     title: 'Alturas',
     image: 'https://images.unsplash.com/photo-1587582423116-ec07293f0395?auto=format&fit=crop&w=900&q=80',
+    description: 'Entrena trabajos en altura en un entorno inmersivo y seguro. Aprende a elegir y colocarte el EPP correcto. Revisar lainformación de seguridad y enfrentar situaciones de riesgo que ponen aprueba tu reacción. Practica el ascenso por escaleras fijas usando arnés y línea de vida, reduciendo al mínimo la posibilidad de accidentes. Capacitación realista, sin exposición al peligro.',
+
   },
   {
     title: 'Espacios Confinados',
     image: 'https://images.unsplash.com/photo-1569156519699-a1b73fa3cb70?auto=format&fit=crop&w=900&q=80',
+    description: 'Asume el rol de supervisor en un entorno virtual de espacios confinados. Aprende a identificar el EPP adecuado, preparar la zona de trabajo y revisar permisos y listas de verificación antes del ingreso. Controla el acceso del personal y reconoce los riesgos observando incidentes simulados como caídas o desmayos. Entrena procedimientos críticos sin poner a nadie en peligro.',
+
   },
   {
     title: 'Eléctrico (LOTO)',
     image: 'https://images.unsplash.com/photo-1786372282128-a73d0b1ece98?auto=format&fit=crop&w=900&q=80',
+    description: 'Entrena el procedimiento de bloqueo y etiquetado en una simulación inmersiva y segura. Aprende a revisar permisos y listas de verificación, colocarte el EPP adecuado y seguir paso a paso las etapas de planeación, preparación, desarrollo y conclusión. Enfrente eventos de riesgo que muestran las consecuencias de un error y asegura que ninguna fuente de energía sea liberada accidentalmente. Capacitación precisa para trabajos críticos.',
+
   },
   {
     title: 'EPP',
     image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=900&q=80',
+    description: '...', 
   },
   {
     title: 'Ergonomía',
     image: 'https://images.unsplash.com/photo-1768926968986-a88590ce5025?auto=format&fit=crop&w=900&q=80',
+    description: 'Identifica y corrige riesgos ergonómicos en un entorno virtual de oficina. Interactúa con personajes y espacios para mejorarla postura, optimizar tu área de trabajo y ajustar la iluminación adecuada.Aprende buenas prácticas para prevenir molestias y promover hábitos saludables en el día a día. Una experiencia inmersiva que transforma tu forma de trabajar.',
+
   },
   {
     title: 'Manejo de Extintores',
     image: 'https://images.unsplash.com/photo-1716009441550-463ee99f80f7?auto=format&fit=crop&w=900&q=80',
+    description: 'Entrena el uso de extintores en un entorno totalmente inmersivo, Aprende a identificar el tipo de incendio, seleccionar el extintor adecuado y aplicarlo paso a paso, desde retirar el seguro hasta extinguir el fuego de forma segura. Practica con extintores PQS, CO2, Clase D y Clase K, en situaciones realistas, recibe retroalimentación inmediata y mejora tus habilidades sin riesgos. Vive la experiencia, antes de enfrentarla en la vida real.',
   },
   {
     title: 'Seguridad Vial',
     image: 'https://images.unsplash.com/photo-1602951172321-fe0aa8865e6b?auto=format&fit=crop&w=900&q=80',
+    description: '...',
   },
 ]
 
@@ -141,6 +152,11 @@ function App() {
               )
             })}
           </ul>
+        </div>
+
+        <div className="virtual-reality-info">
+          <h3>{virtualCards[selectedIndex].title}</h3>
+          <p>{virtualCards[selectedIndex].description}</p>
         </div>
       </div>
 

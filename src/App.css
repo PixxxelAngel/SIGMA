@@ -196,7 +196,7 @@
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255, 204, 0, 0.15);
-  border: 1px solid rgba(255, 204, 0, 0.6);
+ 
   color: #ffe97a;
   font-size: 0.72rem;
   font-weight: 600;
@@ -460,4 +460,24 @@
   .floating-contact-menu {
     min-width: 220px;
   }
+}
+
+
+.virtual-reality-info {
+  width: min(100%, 850px);
+  padding: 28px 32px;
+  text-align: center;
+}
+
+.virtual-reality-info h3 {
+  margin: 0 0 14px;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: #ffe97a;
+}
+
+.virtual-reality-info p {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
 }
