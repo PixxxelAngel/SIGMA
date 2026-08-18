@@ -431,7 +431,7 @@ body {
 
 
 
-/* Celulares */
+/* Cellphones*/
 
 @media (max-width: 600px), (max-height: 600px) and (orientation: landscape) {
   .page {
@@ -455,7 +455,7 @@ body {
   }
 
   .virtual-reality-grid {
-    min-height: 300px;
+    min-height: 340px;
   }
 
   .virtual-reality-grid {
