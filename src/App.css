@@ -114,6 +114,7 @@
   align-items: center;
   overflow: hidden;
   min-height: 360px;
+  position: relative;
 }
 
 .virtual-reality-track {
@@ -451,6 +452,9 @@
 
   .virtual-reality-track {
     gap: 10px;
+    width: max-content;
+    padding-left: calc(50vw - 105px);
+    padding-right: calc(50vw - 105px);
   }
 
   .virtual-card {
