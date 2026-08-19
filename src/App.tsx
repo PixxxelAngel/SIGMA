@@ -3,6 +3,7 @@ import { AiOutlineMail } from 'react-icons/ai'
 import { FaWhatsapp } from 'react-icons/fa'
 import { PiInstagramLogoBold } from 'react-icons/pi'
 import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
+import { AiFillYoutube } from 'react-icons/ai'
 import logo from './assets/logo.png'
 import './App.css'
 
@@ -178,6 +179,10 @@ function App() {
             <a href="https://instagram.com/sigmahseq" target="_blank" rel="noreferrer" className="contact-item">
               <PiInstagramLogoBold className="contact-item-icon" aria-hidden="true" />
               @sigmahseq
+            </a>
+            <a href="https://www.youtube.com/@SIGMAHSEQSAS" target="_blank" rel="noreferrer" className="contact-item">
+              <AiFillYoutube className="contact-item-icon" aria-hidden="true" />
+              @SIGMAHSEQSAS
             </a>
           </div>
         )}
