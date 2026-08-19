@@ -6,6 +6,7 @@ import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
 import { FaArrowRight } from 'react-icons/fa6'
 import { FaArrowLeft } from 'react-icons/fa6'
 import logo from './assets/logo.png'
+import vrman from './assets/vrman.png'
 import './App.css'
 
 const virtualCards = [
@@ -71,14 +72,24 @@ function App() {
       <div className="hero">
         <img src={logo} alt="Logo" className="logo" />
 
-        <h1 className="slogan">
-          Prevención que se vive, seguridad que se aprende.
-        </h1>
+        <div className="hero-content">
+          <img src={vrman} alt="Persona usando realidad virtual" className="vr-person" />
 
-        <p className="description">
-          Empresa especializada en consultoría, asesoría y formación en materia de Seguridad y Salud en el Trabajo (SST), Seguridad Vial, Medio Ambiente y Calidad con experiencias inmersivas de realidad virtual.
-        </p>
+          <div className="hero-text">
+            <h1 className="slogan">
+              Prevención que se vive, seguridad que se aprende.
+            </h1>
+
+            <p className="description">
+              Empresa especializada en consultoría, asesoría y formación en materia de Seguridad y Salud en el Trabajo (SST), Seguridad Vial, Medio Ambiente y Calidad con experiencias inmersivas de realidad virtual.
+            </p>
+          </div>
+        </div>
       </div>
+
+
+
+      
 
       <div className="services">
         <h2 className="services-title">Nuestros Servicios</h2>
@@ -91,7 +102,7 @@ function App() {
           <li>Elaboración del plan de Emergencias, Contingencias y Ayuda Mutua</li>
           <li>Asesoría en la conformación, formación y entrenamiento de grupos de apoyo de emergencias</li>
           <li>Investigación de accidentes de trabajo leves, graves y/o fatales</li>
-          <li>Plan de ',gestión Ambiental</li>
+          <li>Plan de gestión Ambiental</li>
         </ul>
       </div>
 

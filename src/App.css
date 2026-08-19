@@ -31,6 +31,16 @@ body {
   height: auto;
   display: block;
   margin-bottom: 20px;
+
+  filter: drop-shadow(0 0 8px rgba(60, 118, 244, 0.45))
+          drop-shadow(0 0 20px rgba(107, 138, 243, 0.25));
+}
+
+.vr-person {
+  width: 220px;
+  height: auto;
+  align-self: flex-start;
+  margin-top: 10px;
 }
 
 .slogan {
@@ -50,6 +60,25 @@ body {
   color: rgba(255, 255, 255, 0.8);
   max-width: 750px;
   text-align: center;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  width: 100%;
+}
+
+.vr-person {
+  width: 240px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.hero-text {
+  max-width: 650px;
+  text-align: left;
 }
 
 .services,
