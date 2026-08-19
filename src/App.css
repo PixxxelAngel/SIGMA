@@ -160,7 +160,7 @@ body {
 .virtual-card.is-near {
   opacity: 0.8;
   filter: saturate(0.9) brightness(0.9);
-  transform: scale(0.96) translateY(8px);
+  transform: scale(0.96) translateY(0);
 }
 
 .virtual-card.is-center {
