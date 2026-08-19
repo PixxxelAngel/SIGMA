@@ -10,7 +10,7 @@ import './App.css'
 
 const virtualCards = [
   {
-    title: 'Alturas',
+    title: 'Alturassssss',
     image: 'https://images.unsplash.com/photo-1587582423116-ec07293f0395?auto=format&fit=crop&w=900&q=80',
     description: 'Entrena trabajos en altura en un entorno inmersivo y seguro. Aprende a elegir y colocarte el EPP correcto. Revisar lainformación de seguridad y enfrentar situaciones de riesgo que ponen aprueba tu reacción. Practica el ascenso por escaleras fijas usando arnés y línea de vida, reduciendo al mínimo la posibilidad de accidentes. Capacitación realista, sin exposición al peligro.',
     video: 'https://www.youtube.com/embed/EP_EkHMSYBY',
