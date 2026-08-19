@@ -70,10 +70,18 @@ function App() {
 
     <div className="page">
       <div className="hero">
-        <img src={logo} alt="Logo" className="logo" />
+        <div className="logo-neon-wrap">
+          <span className="neon-stroke neon-stroke-logo-a" aria-hidden="true" />
+          <span className="neon-stroke neon-stroke-logo-b" aria-hidden="true" />
+          <img src={logo} alt="Logo" className="logo" />
+        </div>
 
         <div className="hero-content">
-          <img src={vrman} alt="Persona usando realidad virtual" className="vr-person" />
+          <div className="vr-neon-wrap">
+            <span className="neon-stroke neon-stroke-vr-a" aria-hidden="true" />
+            <span className="neon-stroke neon-stroke-vr-b" aria-hidden="true" />
+            <img src={vrman} alt="Persona usando realidad virtual" className="vr-person" />
+          </div>
 
           <div className="hero-text">
             <h1 className="slogan">
