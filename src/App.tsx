@@ -44,7 +44,7 @@ const virtualCards = [
   {
     title: 'Seguridad Vial',
     image: 'https://images.unsplash.com/photo-1602951172321-fe0aa8865e6b?auto=format&fit=crop&w=900&q=80',
-    description: '...',
+    description: 'Experiencia inmersiva de Realidad Virtual diseñada para fortalecer la cultura de seguridad vial mediante la vivencia de situaciones de riesgo en entornos simulados. El participante toma decisiones frente a factores como exceso de velocidad, distracciones, fatiga, condiciones de la vía y comportamiento seguro, permitiendo identificar consecuencias y reforzar hábitos de conducción y movilidad responsable de forma práctica, interactiva y memorable.',
   },
 ]
 
