@@ -3,7 +3,8 @@ import { AiOutlineMail } from 'react-icons/ai'
 import { FaWhatsapp } from 'react-icons/fa'
 import { PiInstagramLogoBold } from 'react-icons/pi'
 import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
-import { AiFillYoutube } from 'react-icons/ai'
+import { FaArrowRight } from 'react-icons/fa6'
+import { FaArrowLeft } from 'react-icons/fa6'
 import logo from './assets/logo.png'
 import './App.css'
 
@@ -12,35 +13,38 @@ const virtualCards = [
     title: 'Alturas',
     image: 'https://images.unsplash.com/photo-1587582423116-ec07293f0395?auto=format&fit=crop&w=900&q=80',
     description: 'Entrena trabajos en altura en un entorno inmersivo y seguro. Aprende a elegir y colocarte el EPP correcto. Revisar lainformación de seguridad y enfrentar situaciones de riesgo que ponen aprueba tu reacción. Practica el ascenso por escaleras fijas usando arnés y línea de vida, reduciendo al mínimo la posibilidad de accidentes. Capacitación realista, sin exposición al peligro.',
-
+    video: 'https://www.youtube.com/embed/EP_EkHMSYBY',
   },
   {
     title: 'Espacios Confinados',
     image: 'https://images.unsplash.com/photo-1569156519699-a1b73fa3cb70?auto=format&fit=crop&w=900&q=80',
     description: 'Asume el rol de supervisor en un entorno virtual de espacios confinados. Aprende a identificar el EPP adecuado, preparar la zona de trabajo y revisar permisos y listas de verificación antes del ingreso. Controla el acceso del personal y reconoce los riesgos observando incidentes simulados como caídas o desmayos. Entrena procedimientos críticos sin poner a nadie en peligro.',
-
+    video: 'https://www.youtube.com/embed/jq8PnfVDnBM',
   },
   {
     title: 'Eléctrico (LOTO)',
     image: 'https://images.unsplash.com/photo-1786372282128-a73d0b1ece98?auto=format&fit=crop&w=900&q=80',
     description: 'Entrena el procedimiento de bloqueo y etiquetado en una simulación inmersiva y segura. Aprende a revisar permisos y listas de verificación, colocarte el EPP adecuado y seguir paso a paso las etapas de planeación, preparación, desarrollo y conclusión. Enfrente eventos de riesgo que muestran las consecuencias de un error y asegura que ninguna fuente de energía sea liberada accidentalmente. Capacitación precisa para trabajos críticos.',
-
+    video: 'https://www.youtube.com/embed/pFPoehTAijE',
   },
   {
     title: 'EPP',
     image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=900&q=80',
     description: 'Experiencia inmersiva de Realidad Virtual orientada a fortalecer el uso correcto y la selección adecuada de los Elementos de Protección Personal (EPP) según el peligro y la actividad a realizar. El participante interactúa con diferentes escenarios, identifica los riesgos y selecciona los elementos de protección apropiados, reforzando criterios de prevención, protección y uso seguro de manera práctica, interactiva y memorable.', 
+   
   },
   {
-    title: 'Ergonomía',
+    title: 'Ergonomía en la Oficina',
     image: 'https://images.unsplash.com/photo-1768926968986-a88590ce5025?auto=format&fit=crop&w=900&q=80',
     description: 'Identifica y corrige riesgos ergonómicos en un entorno virtual de oficina. Interactúa con personajes y espacios para mejorarla postura, optimizar tu área de trabajo y ajustar la iluminación adecuada.Aprende buenas prácticas para prevenir molestias y promover hábitos saludables en el día a día. Una experiencia inmersiva que transforma tu forma de trabajar.',
+    video: 'https://www.youtube.com/embed/yW51aAWBh3A',
 
   },
   {
     title: 'Manejo de Extintores',
     image: 'https://images.unsplash.com/photo-1716009441550-463ee99f80f7?auto=format&fit=crop&w=900&q=80',
     description: 'Entrena el uso de extintores en un entorno totalmente inmersivo, Aprende a identificar el tipo de incendio, seleccionar el extintor adecuado y aplicarlo paso a paso, desde retirar el seguro hasta extinguir el fuego de forma segura. Practica con extintores PQS, CO2, Clase D y Clase K, en situaciones realistas, recibe retroalimentación inmediata y mejora tus habilidades sin riesgos. Vive la experiencia, antes de enfrentarla en la vida real.',
+    video: 'https://www.youtube.com/embed/FyQzbqj1HjQ',
   },
   {
     title: 'Seguridad Vial',
@@ -87,7 +91,7 @@ function App() {
           <li>Elaboración del plan de Emergencias, Contingencias y Ayuda Mutua</li>
           <li>Asesoría en la conformación, formación y entrenamiento de grupos de apoyo de emergencias</li>
           <li>Investigación de accidentes de trabajo leves, graves y/o fatales</li>
-          <li>Plan de gestión Ambiental</li>
+          <li>Plan de ',gestión Ambiental</li>
         </ul>
       </div>
 
@@ -155,6 +159,48 @@ function App() {
           </ul>
         </div>
 
+        {virtualCards[selectedIndex].video && (
+          <div className="virtual-video-container">
+
+            <button
+              type="button"
+              className="video-arrow video-arrow-left"
+              onClick={() =>
+                setSelectedIndex(
+                  (selectedIndex - 1 + virtualCards.length) % virtualCards.length
+                )
+              }
+              aria-label="Video anterior"
+            >
+              <FaArrowRight />
+            </button>
+
+            <div className="virtual-video">
+              <iframe
+                src={virtualCards[selectedIndex].video}
+                title={`Video de ${virtualCards[selectedIndex].title}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+
+            <button
+              type="button"
+              className="video-arrow video-arrow-right"
+              onClick={() =>
+                setSelectedIndex(
+                  (selectedIndex + 1) % virtualCards.length
+                )
+              }
+              aria-label="Video siguiente"
+            >
+              <FaArrowRight />
+            </button>
+
+          </div>
+        )}
+
+          
         <div className="virtual-reality-info">
           <h3>{virtualCards[selectedIndex].title}</h3>
           <p>{virtualCards[selectedIndex].description}</p>
@@ -170,7 +216,7 @@ function App() {
             </a>
             <a href="tel:+573128170205" className="contact-item">
               <MdOutlineLocalPhone className="contact-item-icon" aria-hidden="true" />
-              +57 312 817 02 05
+              +57 312 8170205
             </a>
             <a href="https://wa.me/573128170205" target="_blank" rel="noreferrer" className="contact-item">
               <FaWhatsapp className="contact-item-icon" aria-hidden="true" />
@@ -180,10 +226,7 @@ function App() {
               <PiInstagramLogoBold className="contact-item-icon" aria-hidden="true" />
               @sigmahseq
             </a>
-            <a href="https://www.youtube.com/@SIGMAHSEQSAS" target="_blank" rel="noreferrer" className="contact-item">
-              <AiFillYoutube className="contact-item-icon" aria-hidden="true" />
-              @SIGMAHSEQSAS
-            </a>
+           
           </div>
         )}
 
