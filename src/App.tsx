@@ -172,7 +172,7 @@ function App() {
               }
               aria-label="Video anterior"
             >
-              <FaArrowRight />
+              <FaArrowLeft />
             </button>
 
             <div className="virtual-video">
