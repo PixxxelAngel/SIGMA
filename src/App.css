@@ -171,11 +171,12 @@ body {
 }
 
 .services-title,
-.gestion-organizacional-title {
-  margin: 0 0 18px;
-  font-size: clamp(1.4rem, 3vw, 2rem);
+.services-title {
+  margin: 0 0 22px;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
   line-height: 1.2;
   text-align: center;
+  color: #fff;
 }
 
 .services-list,
@@ -187,6 +188,22 @@ body {
   font-size: clamp(0.95rem, 2.2vw, 1.05rem);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
+}
+
+.gestion-organizacional {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.gestion-organizacional-title {
+  margin: 0;
+  text-align: left;
+}
+
+.gestion-organizacional-list {
+  margin: 0;
 }
 
 .virtual-reality {
