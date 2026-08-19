@@ -472,12 +472,12 @@ body {
   }
 
   .virtual-card {
-    flex-basis: 150px;
+    flex-basis: 120px;
   }
 
   .virtual-card.is-center {
-    flex-basis: 210px;
-    min-height: 280px;
+    flex-basis: 170px;
+    min-height: 240px;
   }
 
   .glow-panel {
