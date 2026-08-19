@@ -28,7 +28,7 @@ const virtualCards = [
   {
     title: 'EPP',
     image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=900&q=80',
-    description: '...', 
+    description: 'Experiencia inmersiva de Realidad Virtual orientada a fortalecer el uso correcto y la selección adecuada de los Elementos de Protección Personal (EPP) según el peligro y la actividad a realizar. El participante interactúa con diferentes escenarios, identifica los riesgos y selecciona los elementos de protección apropiados, reforzando criterios de prevención, protección y uso seguro de manera práctica, interactiva y memorable.', 
   },
   {
     title: 'Ergonomía',
