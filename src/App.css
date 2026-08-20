@@ -683,7 +683,8 @@ body {
   }
 
   .vr-person {
-    margin-left: -80px !important; 
+    margin-left: -120px !important; /* Mueve la imagen hacia la izquierda dentro de su espacio */
+    margin-right: -40px !important; /* Le roba espacio invisible a la imagen para dárselo al texto */
     width: 80% !important; 
     max-width: 250px !important; 
     height: auto;
@@ -695,16 +696,17 @@ body {
   }
 
   .hero-content {
-    flex-direction: column !important; /* Apila la imagen arriba/abajo para liberar ancho */
+    flex-direction: row !important; /* Vuelven a estar lado a lado */
     align-items: center;
-    justify-content: center;
-    gap: 16px;
+    justify-content: flex-start; /* Se alinean hacia la izquierda para aprovechar el espacio */
+    gap: 0px !important; /* Eliminamos el espacio intermedio que le quita ancho al texto */
     width: 100%;
   }
 
 
   .hero-text {
-    width: 100% !important; /* Ocupa todo el largo de la pantalla */
+    flex: 1 !important; /* Le dice al texto: "Toma TODO el espacio libre restante a la derecha" */
+    width: auto !important;
     text-align: left !important;
   }
 
