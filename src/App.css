@@ -5,6 +5,88 @@ body {
   background-color: rgb(3, 0, 34);
 }
 
+
+/* Botón de la Hamburguesa flotante en la esquina superior */
+.navbar {
+  position: fixed;
+  top: 18px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.menu-toggle-btn {
+  background: rgba(3, 0, 34, 0.85);
+  border: 2px solid rgba(0, 217, 255, 0.8); /* Borde azul más grueso */
+  color: #00d9ff; /* Ícono azul brillante */
+  font-size: 1.8rem;
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  /* Sombra de resplandor neón */
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5), 0 0 20px rgba(0, 217, 255, 0.2);
+  animation: pulseGlowMenu 3s ease-in-out infinite; /* Animación de brillo suave */
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-toggle-btn:hover {
+  background: rgba(0, 217, 255, 0.15);
+  color: #ffffff;
+  transform: scale(1.05);
+  /* Intensifica el brillo al pasar el cursor */
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.9), 0 0 30px rgba(0, 217, 255, 0.5);
+}
+
+/* Menú desplegable Neón */
+.dropdown-menu {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  min-width: 220px;
+  background: rgba(3, 0, 34, 0.95);
+  border: 2px solid rgba(0, 217, 255, 0.8); /* Borde azul más grueso */
+  border-radius: 16px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  /* Resplandor neón en la caja */
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.4), 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.dropdown-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(0, 217, 255, 0.15);
+  color: #00d9ff;
+  text-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
+}
+
+#servicios, 
+#gestion, 
+#auditorias, 
+#simulaciones {
+  scroll-margin-top: 80px;
+}
+
+/* Suavizar desplazamiento al hacer clic */
+html {
+  scroll-behavior: smooth;
+}
+
+
 .page {
   min-height: 100dvh;
   width: 100%;

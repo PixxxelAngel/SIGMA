@@ -5,6 +5,7 @@ import { PiInstagramLogoBold } from 'react-icons/pi'
 import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
 import { FaArrowRight } from 'react-icons/fa6'
 import { FaArrowLeft } from 'react-icons/fa6'
+import { IoMenu } from 'react-icons/io5'
 import logo from './assets/logo.png'
 import vrman from './assets/vrman.png'
 import './App.css'
@@ -57,6 +58,7 @@ const virtualCards = [
 
 function App() {
   const [contactOpen, setContactOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(3)
 
   const orderedCards = Array.from({ length: virtualCards.length }, (_, offset) => {
@@ -70,6 +72,64 @@ function App() {
   return (
 
     <div className="page">
+
+      <nav className="navbar">
+        <button
+          type="button"
+          className="menu-toggle-btn"
+          aria-expanded={menuOpen}
+          aria-label="Abrir menú de navegación"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <IoMenu className="menu-icon" />
+        </button>
+
+        {menuOpen && (
+          <div className="dropdown-menu">
+            <a 
+              href="#servicios" 
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })
+                setMenuOpen(false)
+              }}
+            >
+              Nuestros Servicios
+            </a>
+            <a 
+              href="#gestion" 
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById('gestion')?.scrollIntoView({ behavior: 'smooth' })
+                setMenuOpen(false)
+              }}
+            >
+              Gestión Organizacional
+            </a>
+            <a 
+              href="#auditorias" 
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById('auditorias')?.scrollIntoView({ behavior: 'smooth' })
+                setMenuOpen(false)
+              }}
+            >
+              Auditorías
+            </a>
+            <a 
+              href="#simulaciones" 
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById('simulaciones')?.scrollIntoView({ behavior: 'smooth' })
+                setMenuOpen(false)
+              }}
+            >
+              Simulaciones VR
+            </a>
+          </div>
+        )}
+      </nav>
+
       <div className="hero">
         <div className="logo-neon-wrap">
           <span className="neon-stroke neon-stroke-logo-a" aria-hidden="true" />
@@ -101,7 +161,7 @@ function App() {
 
       
 
-      <div className="services">
+      <div id="servicios" className="services">
         <h2 className="services-title">Nuestros Servicios</h2>
         <ul className="services-list">
           <li>Documentación, implementación y administración del Sistema de Gestión de Seguridad y Salud en el Trabajo (SST)</li>
@@ -116,7 +176,7 @@ function App() {
         </ul>
       </div>
 
-      <div className="gestion-organizacional">
+      <div id="gestion" className="gestion-organizacional">
         <h2 className="gestion-organizacional-title">Gestión Organizacional</h2>
         <ul className="gestion-organizacional-list">
           <li>Estilos de vida y trabajo saludable</li>
@@ -127,15 +187,14 @@ function App() {
         </ul>
       </div>
 
-      <div className="glow-panel">
+      <div id="auditorias" className="glow-panel">
         <div className="glow-panel-inner">
           <h3 className="glow-panel-title">AUDITORÍAS DE CUMPLIMIENTOS</h3>
           <p className="glow-panel-subtitle">(ISO - SGSST - PESV)</p>
         </div>
       </div>
 
-      <div className="virtual-reality">
-        <div className="virtual-reality-header">
+      <div id="simulaciones" className="virtual-reality">        <div className="virtual-reality-header">
           <h2 className="virtual-reality-title">SIMULACIONES INMERSIVAS CON REALIDAD VIRTUAL</h2>
           <p className="virtual-reality-subtitle">Entrenamiento de alto impacto para prevención y seguridad laboral</p>
         </div>
