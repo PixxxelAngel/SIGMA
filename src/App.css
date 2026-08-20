@@ -566,116 +566,11 @@ body {
   border-color: rgba(255, 242, 34, 0.6);
 }
 
-/* Cellphones*/
 
-@media (max-width: 600px), (max-height: 600px) and (orientation: landscape) {
-  .page {
-    padding: 20px 16px 28px;
-    align-items: flex-start;
-    gap: 28px;
-  }
 
-  .hero {
-    width: 100%;
-  }
-
-  .logo-neon-wrap,
-  .vr-neon-wrap {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .logo {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
- .neon-stroke-logo-a {
-    width: 78%;
-    left: -6%;
-  }
-
-  .neon-stroke-logo-b {
-    width: 82%;
-    right: -8%;
-  }
-  
-  .slogan,
-  .description {
-    margin-right: 0 !important;
-    text-align: center;
-  }
-
-  .vr-person {
-    margin-left: 0 !important;
-    max-width: 100%;
-  }
-
-  /* 2. Oculta el neón que se sale un 350% hacia la derecha */
-  .neon-stroke-vr-c {
-    display: none !important;
-  }
-
-  /* 3. Evita que la sección hero sobrepase el ancho exacto del teléfono */
-  .hero-content {
-    flex-direction: column;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .hero-text {
-    text-align: center;
-    max-width: 100%;
-  }
-
- 
-
-  .services,
-  .gestion-organizacional {
-    width: 100%;
-    padding: 22px 18px;
-  }
-
-  .virtual-reality-grid {
-    min-height: 340px;
-  }
-
-  .virtual-reality-grid {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .virtual-reality-track { 
-    gap: 10px; 
-    width: max-content;
-    justify-content: center;
-    padding-left: calc(50vw - 105px);
-    padding-right: calc(50vw - 105px);
-  }
-
-  .virtual-card {
-    flex-basis: 130px;
-  }
-
-  .virtual-card.is-center {
-    flex-basis: 180px;
-    min-height: 250px;
-  }
-
-  .glow-panel {
-    width: 100%;
-  }
-
-  .floating-contact {
-    right: 14px;
-    bottom: 14px;
-  }
-
-  .floating-contact-menu {
-    min-width: 220px;
-  }
-}
+/* =========================================================
+   ESTILOS GENERALES (Móviles y Laptop)
+   ========================================================= */
 
 .virtual-video-container {
   width: min(100%, 1000px);
@@ -736,4 +631,125 @@ body {
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.82);
+}
+
+
+@media (max-width: 600px), (max-height: 600px) and (orientation: landscape) {
+  .page {
+    padding: 20px 16px 28px;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .hero {
+    width: 100%;
+  }
+
+  .logo-neon-wrap,
+  .vr-neon-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .neon-stroke-logo-a {
+    width: 78%;
+    left: -6%;
+  }
+
+  .neon-stroke-logo-b {
+    width: 82%;
+    right: -8%;
+  }
+
+  .slogan,
+  .description {
+    margin-right: 0 !important;
+    text-align: center;
+  }
+
+  .vr-person {
+    margin-left: 0 !important;
+    max-width: 100%;
+  }
+
+  /* Oculta el neón que se sale un 350% hacia la derecha */
+  .neon-stroke-vr-c {
+    display: none !important;
+  }
+
+  /* Evita que la sección hero sobrepase el ancho exacto del teléfono */
+  .hero-content {
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .hero-text {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .services {
+    width: 100%;
+    padding: 22px 18px;
+  }
+
+  /* Convierte la cuadrícula de 2 columnas a 1 sola fila vertical en móviles */
+  .gestion-organizacional {
+    width: 100%;
+    padding: 22px 18px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gestion-organizacional-title {
+    text-align: center;
+  }
+
+  .virtual-reality-grid {
+    min-height: 340px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .virtual-reality-track { 
+    gap: 10px; 
+    width: max-content;
+    justify-content: center;
+    padding-left: calc(50vw - 105px);
+    padding-right: calc(50vw - 105px);
+  }
+
+  .virtual-card {
+    flex-basis: 130px;
+  }
+
+  .virtual-card.is-center {
+    flex-basis: 180px;
+    min-height: 250px;
+  }
+
+  .glow-panel {
+    width: 100%;
+  }
+
+  .floating-contact {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .floating-contact-menu {
+    min-width: 220px;
+  }
+
+  /* Adapta el espacio de las flechas y video para pantallas estrechas */
+  .virtual-video-container {
+    gap: 8px;
+  }
 }
