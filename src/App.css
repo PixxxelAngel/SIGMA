@@ -609,6 +609,8 @@ body {
   display: block;
 }
 
+
+
 .virtual-reality-info {
   width: min(100%, 850px);
   padding: 28px 32px;
@@ -720,9 +722,16 @@ body {
     text-align: center;
   }
 
+  .virtual-reality {
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
   .virtual-reality-grid {
     min-height: 340px;
-    width: 100%;
+    width: calc(100% + 32px) !important; /* Compensa los 16px de padding izquierdo y derecho de .page */
+    margin-left: -16px !important; /* Desplaza el carrusel hasta el borde izquierdo de la pantalla */
+    margin-right: -16px !important;
     overflow: hidden;
   }
 
