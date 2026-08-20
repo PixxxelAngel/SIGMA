@@ -32,7 +32,7 @@ const virtualCards = [
     title: 'EPP',
     image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=900&q=80',
     description: 'Experiencia inmersiva de Realidad Virtual orientada a fortalecer el uso correcto y la selección adecuada de los Elementos de Protección Personal (EPP) según el peligro y la actividad a realizar. El participante interactúa con diferentes escenarios, identifica los riesgos y selecciona los elementos de protección apropiados, reforzando criterios de prevención, protección y uso seguro de manera práctica, interactiva y memorable.', 
-   
+    video: 'https://www.youtube.com/embed/EP_EkHMSYBY',
   },
   {
     title: 'Ergonomía en la Oficina',
@@ -51,6 +51,7 @@ const virtualCards = [
     title: 'Seguridad Vial',
     image: 'https://images.unsplash.com/photo-1602951172321-fe0aa8865e6b?auto=format&fit=crop&w=900&q=80',
     description: 'Experiencia inmersiva de Realidad Virtual diseñada para fortalecer la cultura de seguridad vial mediante la vivencia de situaciones de riesgo en entornos simulados. El participante toma decisiones frente a factores como exceso de velocidad, distracciones, fatiga, condiciones de la vía y comportamiento seguro, permitiendo identificar consecuencias y reforzar hábitos de conducción y movilidad responsable de forma práctica, interactiva y memorable.',
+    video: 'https://www.youtube.com/embed/EP_EkHMSYBY',
   },
 ]
 
