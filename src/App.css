@@ -601,16 +601,8 @@ body {
     right: -8%;
   }
 
-  .hero-text {
-    width: 100%;
-    text-align: center;
-  }
-
   .description {
-    width: 100%;
     max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
   }
 
   .services,
