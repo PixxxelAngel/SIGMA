@@ -669,14 +669,14 @@ body {
   .slogan {
     margin-right: 0 !important;
     text-align: center !important;
-    font-size: clamp(1.1rem, 4.1vw, 1.43rem) !important;
+    font-size: clamp(1.02rem, 3.8vw, 1.32rem) !important;
     line-height: 1.15;
   }
 
   .description {
     margin-right: 0 !important;
     text-align: center !important;
-    font-size: clamp(0.85rem, 2.8vw, 0.98rem) !important;
+    font-size: clamp(0.78rem, 2.6vw, 0.9rem) !important;
     margin-top: 6px !important;
     line-height: 1.3;
   }
