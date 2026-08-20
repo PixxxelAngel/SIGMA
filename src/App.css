@@ -592,14 +592,14 @@ body {
   }
 
  .neon-stroke-logo-a {
-  width: 78%;
-  left: -6%;
-}
+    width: 78%;
+    left: -6%;
+  }
 
-.neon-stroke-logo-b {
-  width: 82%;
-  right: -8%;
-}
+  .neon-stroke-logo-b {
+    width: 82%;
+    right: -8%;
+  }
 
   .description {
     max-width: 100%;
