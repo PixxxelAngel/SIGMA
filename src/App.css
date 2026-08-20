@@ -586,10 +586,20 @@ body {
     justify-content: center;
   }
 
-  .neon-stroke-logo-a,
-  .neon-stroke-logo-b {
-    width: 72%;
+  .logo {
+    margin-left: auto;
+    margin-right: auto;
   }
+
+ .neon-stroke-logo-a {
+  width: 78%;
+  left: -6%;
+}
+
+.neon-stroke-logo-b {
+  width: 82%;
+  right: -8%;
+}
 
   .description {
     max-width: 100%;
