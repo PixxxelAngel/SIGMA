@@ -729,9 +729,8 @@ body {
 
   .virtual-reality-grid {
     min-height: 340px;
-    width: calc(100% + 32px) !important; /* Compensa los 16px de padding izquierdo y derecho de .page */
-    margin-left: -16px !important; /* Desplaza el carrusel hasta el borde izquierdo de la pantalla */
-    margin-right: -16px !important;
+    width: 100vw !important; /* Ocupa el 100% exacto del ancho de la pantalla */
+    margin-left: -16px !important; /* Compensa el padding izquierdo de .page */
     overflow: hidden;
   }
 
@@ -739,8 +738,9 @@ body {
     gap: 10px;
     width: max-content;
     justify-content: center;
-    padding-left: calc(50vw - 105px);
-    padding-right: calc(50vw - 105px);
+    padding-left: calc(50vw - 90px) !important;
+    padding-right: calc(50vw - 90px) !important;
+    box-sizing: border-box;
   }
 
   .virtual-card {
