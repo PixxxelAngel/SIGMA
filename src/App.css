@@ -600,10 +600,36 @@ body {
     width: 82%;
     right: -8%;
   }
-
+  
+  .slogan,
   .description {
+    margin-right: 0 !important;
+    text-align: center;
+  }
+
+  .vr-person {
+    margin-left: 0 !important;
     max-width: 100%;
   }
+
+  /* 2. Oculta el neón que se sale un 350% hacia la derecha */
+  .neon-stroke-vr-c {
+    display: none !important;
+  }
+
+  /* 3. Evita que la sección hero sobrepase el ancho exacto del teléfono */
+  .hero-content {
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .hero-text {
+    text-align: center;
+    max-width: 100%;
+  }
+
+ 
 
   .services,
   .gestion-organizacional {
