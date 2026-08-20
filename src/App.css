@@ -732,7 +732,7 @@ body {
 
   .vr-person {
 
-    margin-left: -70px !important; /* Mueve la imagen más a la izquierda */
+    margin-left: -80px !important; /* Mueve la imagen más a la izquierda */
 
     width: 80% !important; /* Incrementamos de 40% a 50% el espacio para la imagen */
 
