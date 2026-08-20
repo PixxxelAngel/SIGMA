@@ -637,45 +637,31 @@ body {
 @media (max-width: 600px), (max-height: 600px) and (orientation: landscape) {
 
   .page {
-
     padding: 20px 16px 28px;
-
     align-items: flex-start;
-
     gap: 28px;
-
   }
 
 
 
   .hero {
-
     width: 100%;
-
   }
 
 
 
   .logo-neon-wrap,
-
   .vr-neon-wrap {
-
     width: 100%;
-
     display: flex;
-
     justify-content: center;
-
   }
 
 
 
   .logo {
-
     margin-left: auto;
-
     margin-right: auto;
-
   }
 
 
@@ -771,21 +757,15 @@ body {
 
 
   .hero-text {
-
-    width: 60% !important;
-
+    width: 75% !important; /* Aumentamos el espacio horizontal para el texto */
     text-align: left !important;
-
   }
 
 
 
   .services {
-
     width: 100%;
-
     padding: 22px 18px;
-
   }
 
 
@@ -793,15 +773,10 @@ body {
   /* Convierte la cuadrícula de 2 columnas a 1 sola fila vertical en móviles */
 
   .gestion-organizacional {
-
     width: 100%;
-
     padding: 22px 18px;
-
     grid-template-columns: 1fr;
-
     gap: 16px;
-
   }
 
 
