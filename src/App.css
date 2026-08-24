@@ -97,6 +97,8 @@ html {
   justify-content: center;
   gap: 40px;
   padding: 24px;
+  box-sizing: border-box; /* Previene desbordamiento por padding */
+  overflow-x: hidden;     /* Oculta cualquier elemento neón que se salga */
 }
 
 .hero {
@@ -105,7 +107,20 @@ html {
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-width: 900px;
+  width: 100%;
+  max-width: 1000px; /* Un poco más espacioso */
+  box-sizing: border-box;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* Permite que si la pantalla es estrecha, pase suavemente abajo sin empujar los lados */
 }
 
 .logo-neon-wrap,
@@ -156,46 +171,37 @@ html {
 }
 
 .vr-person {
-  width: 600px;
+  width: 100%;
+  max-width: 380px; /* Límite para que no se gigante */
+  flex: 1 1 300px;  /* Permite encogerse hasta 300px antes de romper */
   height: auto;
-  margin-left: -100px;
-
+  
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%),
     linear-gradient(to top, transparent 0%, black 25%);
   -webkit-mask-composite: source-in;
-
   mask-image: linear-gradient(to right, transparent 0%, black 100%),
     linear-gradient(to top, transparent 0%, black 70%);
   mask-composite: intersect;
 }
 
 .slogan {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.4rem, 2.5vw + 0.5rem, 2.5rem); /* Tamaño fluido que escala perfecto */
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 0.03em;
-  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
   color: white;
-  margin-right: -200px;
+  margin: 0;
+  word-wrap: break-word; /* Evita desbordamientos de texto */
 }
 
 .description {
-  margin-top: 18px;
-  font-size: clamp(0.95rem, 2.4vw, 1.05rem);
-  line-height: 1.7;
+  margin-top: 14px;
+  font-size: clamp(0.85rem, 1.2vw + 0.4rem, 1.05rem);
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
-  max-width: 750px;
-  text-align: center;
-  margin-right: -200px;
 }
 
-.hero-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 35px;
-  width: 100%;
-}
+
 
 .vr-neon-wrap {
   padding: 6px;
@@ -223,7 +229,7 @@ html {
 .neon-stroke-vr-c {
   width: 64%;
   top: 80%;
-  left: 350%;
+  left: 20%; /* Cambiado de 350% a 20% */
   transform: rotate(-15deg);
   background: linear-gradient(90deg, transparent, rgba(58, 198, 255, 0.95), rgba(255, 210, 70, 0.92), transparent);
   box-shadow: 0 0 10px rgba(58, 198, 255, 0.72), 0 0 22px rgba(255, 210, 70, 0.35);
@@ -232,8 +238,10 @@ html {
 
 
 .hero-text {
-  max-width: 650px;
+  flex: 1 1 320px;
+  max-width: 500px;
   text-align: left;
+  box-sizing: border-box;
 }
 
 @keyframes neonPulse {
@@ -851,5 +859,6 @@ html {
     gap: 8px;
   }
 }
+
 
 
