@@ -60,6 +60,7 @@ function App() {
   const [contactOpen, setContactOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(3)
+  const [activeNav, setActiveNav] = useState('servicios')
 
   const orderedCards = Array.from({ length: virtualCards.length }, (_, offset) => {
     const cardIndex = (selectedIndex + offset - 3 + virtualCards.length) % virtualCards.length
@@ -74,6 +75,7 @@ function App() {
     <div className="page">
 
       <nav className="navbar">
+        {/* Botón hamburguesa (Se visualizará solo en móviles mediante CSS) */}
         <button
           type="button"
           className="menu-toggle-btn"
@@ -84,50 +86,61 @@ function App() {
           <IoMenu className="menu-icon" />
         </button>
 
-        {menuOpen && (
-          <div className="dropdown-menu">
-            <a 
-              href="#servicios" 
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })
-                setMenuOpen(false)
-              }}
-            >
-              Nuestros Servicios
-            </a>
-            <a 
-              href="#gestion" 
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById('gestion')?.scrollIntoView({ behavior: 'smooth' })
-                setMenuOpen(false)
-              }}
-            >
-              Gestión Organizacional
-            </a>
-            <a 
-              href="#auditorias" 
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById('auditorias')?.scrollIntoView({ behavior: 'smooth' })
-                setMenuOpen(false)
-              }}
-            >
-              Auditorías
-            </a>
-            <a 
-              href="#simulaciones" 
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById('simulaciones')?.scrollIntoView({ behavior: 'smooth' })
-                setMenuOpen(false)
-              }}
-            >
-              Simulaciones VR
-            </a>
-          </div>
-        )}
+        {/* Contenedor de links (Barra horizontal en Desktop, Menú desplegable en Móvil) */}
+        {/* Contenedor de links */}
+        <div className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
+          <a 
+            href="#servicios" 
+            className={activeNav === 'servicios' ? 'active' : ''}
+            onClick={(e) => {
+              e.preventDefault()
+              setActiveNav('servicios')
+              document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })
+              setMenuOpen(false)
+            }}
+          >
+            Nuestros Servicios
+          </a>
+
+          <a 
+            href="#gestion" 
+            className={activeNav === 'gestion' ? 'active' : ''}
+            onClick={(e) => {
+              e.preventDefault()
+              setActiveNav('gestion')
+              document.getElementById('gestion')?.scrollIntoView({ behavior: 'smooth' })
+              setMenuOpen(false)
+            }}
+          >
+            Gestión Organizacional
+          </a>
+
+          <a 
+            href="#auditorias" 
+            className={activeNav === 'auditorias' ? 'active' : ''}
+            onClick={(e) => {
+              e.preventDefault()
+              setActiveNav('auditorias')
+              document.getElementById('auditorias')?.scrollIntoView({ behavior: 'smooth' })
+              setMenuOpen(false)
+            }}
+          >
+            Auditorías
+          </a>
+
+          <a 
+            href="#simulaciones" 
+            className={activeNav === 'simulaciones' ? 'active' : ''}
+            onClick={(e) => {
+              e.preventDefault()
+              setActiveNav('simulaciones')
+              document.getElementById('simulaciones')?.scrollIntoView({ behavior: 'smooth' })
+              setMenuOpen(false)
+            }}
+          >
+            Simulaciones VR
+          </a>
+        </div>
       </nav>
 
       <div className="hero">
