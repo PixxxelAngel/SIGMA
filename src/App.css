@@ -828,15 +828,13 @@ html {
     box-sizing: border-box;
   }
 
-  /* 3. ESTILO CUANDO UNO SELECCIONA O TIENE .active EN CELULAR */
   .nav-links a.active {
-    background: rgba(0, 217, 255, 0.18); /* Fondo brillante sutil */
-    color: #00d9ff;
-    border: 1px solid rgba(0, 217, 255, 0.6); /* Borde completo uniforme */
-    border-bottom: 1px solid rgba(0, 217, 255, 0.6); /* << SOBREESCRIBE EL BORDEN NEGRO DE PC */
-    border-radius: 10px; /* Bordes suaves simétricos, sin pestañas arriba */
-    text-shadow: 0 0 10px rgba(0, 217, 255, 0.9);
-    box-shadow: 0 0 12px rgba(0, 217, 255, 0.3);
+    background: transparent; /* Quita la caja/fondo */
+    color: #00d9ff;          /* Texto azul cyan brillante */
+    border: none;            /* Quita bordes */
+    box-shadow: none;        /* Quita sombra de caja */
+    font-weight: 700;        /* Hace la letra un poco más gruesa */
+    text-shadow: 0 0 12px rgba(0, 217, 255, 1); /* Resalta solo el texto con neón */
   }
 
   /* 4. ELIMINA LAS CURVAS FLOTANTES Y PESTAÑAS EN CELULAR */
