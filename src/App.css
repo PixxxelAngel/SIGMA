@@ -860,7 +860,7 @@ html {
   .logo {
     margin-left: auto;
     margin-right: auto;
-    margin-top: -25px;
+    margin-top: -35px;
   }
 
   .neon-stroke-logo-a {
@@ -880,7 +880,7 @@ html {
     text-align: center !important;
     font-size: clamp(1.02rem, 3.8vw, 1.32rem) !important;
     line-height: 1.15;
-    margin-top: 6px !important;
+    margin-top: -10px !important;
   }
 
   .description {
@@ -897,7 +897,7 @@ html {
     max-width: 250px !important;
     height: auto;
     flex-shrink: 0;
-    margin-top: -20%;
+    margin-top: -25%;
   }
 
   .neon-stroke-vr-c {
