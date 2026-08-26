@@ -7,6 +7,7 @@ import { FaArrowRight } from 'react-icons/fa6'
 import { FaArrowLeft } from 'react-icons/fa6'
 import { IoMenu } from 'react-icons/io5'
 import logo from './assets/logo.png'
+import logonav from './assets/logonav.png'
 import vrman from './assets/vrman.png'
 import './App.css'
 
@@ -88,7 +89,7 @@ function App() {
 
         {/* LOGO A LA IZQUIERDA DE LA CÁPSULA */}
         <a href="#" className="nav-logo">
-          <img src={logo} alt="SIGMA HSEQ Logo" />
+          <img src={logonav} alt="SIGMA HSEQ Logo" />
         </a>
 
         {/* Contenedor de links */}
