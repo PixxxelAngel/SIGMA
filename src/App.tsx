@@ -160,6 +160,7 @@ function App() {
             <span className="neon-stroke neon-stroke-vr-a" aria-hidden="true" />
             <span className="neon-stroke neon-stroke-vr-b" aria-hidden="true" />
             <span className="neon-stroke neon-stroke-vr-c" aria-hidden="true" />
+            <span className="neon-stroke neon-stroke-vr-d" aria-hidden="true" />
             <img src={vrman} alt="Persona usando realidad virtual" className="vr-person" />
           </div>
 
