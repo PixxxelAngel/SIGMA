@@ -31,7 +31,7 @@ body {
   background: rgba(3, 0, 34, 0.85);
   border-bottom: 2px solid rgba(0, 217, 255, 0.8);
   backdrop-filter: blur(12px);
-  box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+ 
   overflow: visible; /* Permite que las curvas salgan sin recortarse */
 }
 
@@ -62,7 +62,7 @@ body {
   border: 2px solid rgba(0, 217, 255, 0.8);
   border-bottom: 2px solid rgb(3, 0, 34); /* Oculta la línea inferior justo debajo del botón */
   border-radius: 12px 12px 0 0;
-  box-shadow: 0 -4px 12px rgba(0, 217, 255, 0.4);
+  
   text-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
   z-index: 2;
 }
@@ -725,7 +725,7 @@ html {
   }
 
   .menu-toggle-btn {
-    display: flex; /* Aparece la hamburguesa en celular */
+    display: flex;
     background: rgba(3, 0, 34, 0.85);
     border: 2px solid rgba(0, 217, 255, 0.8);
     color: #00d9ff;
@@ -748,15 +748,17 @@ html {
     box-shadow: 0 0 15px rgba(0, 217, 255, 0.9), 0 0 30px rgba(0, 217, 255, 0.5);
   }
 
+  /* 1. MENÚ DESPLEGABLE EN CELULAR */
   .nav-links {
-    display: none; /* Oculto en móvil por defecto */
+    display: none;
     position: absolute;
     top: 55px;
     left: 0;
-    min-width: 220px;
+    width: 230px; /* Ancho fijo para mantener simetría */
     flex-direction: column;
+    align-items: center; /* Centra las opciones horizontalmente */
     border-radius: 16px;
-    padding: 10px;
+    padding: 12px 10px;
     gap: 8px;
     background: rgba(3, 0, 34, 0.95);
     border: 2px solid rgba(0, 217, 255, 0.8);
@@ -764,15 +766,37 @@ html {
   }
 
   .nav-links.is-open {
-    display: flex; /* Se despliega al pulsar */
+    display: flex;
   }
 
+  /* 2. ESTILO DE ENLACES BASE EN CELULAR */
   .nav-links a {
+    width: 100%;
+    text-align: center; /* Centra el texto del enlace */
     text-transform: none;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 10px 14px;
+    margin-bottom: 0; /* Quita el desajuste del escritorio */
+    border: none; /* Elimina bordes extra heredados */
+    box-sizing: border-box;
   }
 
+  /* 3. ESTILO CUANDO UNO SELECCIONA O TIENE .active EN CELULAR */
+  .nav-links a.active {
+    background: rgba(0, 217, 255, 0.18); /* Fondo brillante sutil */
+    color: #00d9ff;
+    border: 1px solid rgba(0, 217, 255, 0.6); /* Borde completo uniforme */
+    border-bottom: 1px solid rgba(0, 217, 255, 0.6); /* << SOBREESCRIBE EL BORDEN NEGRO DE PC */
+    border-radius: 10px; /* Bordes suaves simétricos, sin pestañas arriba */
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.9);
+    box-shadow: 0 0 12px rgba(0, 217, 255, 0.3);
+  }
+
+  /* 4. ELIMINA LAS CURVAS FLOTANTES Y PESTAÑAS EN CELULAR */
+  .nav-links a.active::before,
+  .nav-links a.active::after {
+    display: none !important;
+  }
   .page {
     padding: 20px 16px 28px;
     align-items: flex-start;
