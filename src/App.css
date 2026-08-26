@@ -6,7 +6,7 @@ body {
 }
 
 /* ==========================================
-   NAVBAR BASE (PC Y TABLET)
+   NAVBAR BASE (ESCRITORIO / LAPTOP)
 ========================================== */
 .navbar {
   position: fixed;
@@ -15,58 +15,98 @@ body {
   transform: translateX(-50%);
   z-index: 1000;
   width: auto;
+  max-width: 90vw;
+  display: flex;
+  align-items: center; /* Alinea verticalmente el logo y los botones */
+  justify-content: space-between;
+  gap: 35px; /* Separación limpia entre el logo y el primer botón */
+  padding: 6px 20px 6px 16px; /* Padding interno de la cápsula */
+  background: rgba(3, 0, 34, 0.85);
+  border: 1px solid rgba(0, 217, 255, 0.4);
+  border-bottom: 2px solid rgba(0, 217, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 16px; /* Cápsula totalmente redondeada estilo moderno */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 0 0 15px rgba(0, 217, 255, 0.2);
 }
 
+/* 1. OCULTAR BOTÓN HAMBURGUESA EN PC */
 .menu-toggle-btn {
-  display: none;
+  display: none !important;
 }
 
+/* 2. LOGO INTEGRADO EN LA BARRA */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0; /* Evita que el logo se comprima */
+}
+
+.nav-logo img {
+  height: 36px; /* Altura ideal dentro del nav */
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.7));
+  transition: transform 0.25s ease;
+}
+
+.nav-logo img:hover {
+  transform: scale(1.06);
+}
+
+/* 3. CONTENEDOR DE ENLACES EN PC */
 .nav-links {
   display: flex;
   position: relative;
   flex-direction: row;
-  align-items: flex-end; /* Alinea los botones perfecto sobre la línea */
-  gap: 20px; /* Aumentado para dar espacio a la curva sin pisar al vecino */
-  padding: 0 24px;
-  background: rgba(3, 0, 34, 0.85);
-  border-bottom: 2px solid rgba(0, 217, 255, 0.8);
-  backdrop-filter: blur(12px);
- 
-  overflow: visible; /* Permite que las curvas salgan sin recortarse */
+  align-items: center; /* Alinea los enlaces al centro del eje horizontal */
+  gap: 8px;
+  padding: 0;
+  background: transparent;
+  border-bottom: none;
+  backdrop-filter: none;
+  overflow: visible;
 }
 
 .nav-links a {
   position: relative;
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  padding: 12px 20px;
-  font-size: 0.9rem;
+  padding: 8px 16px;
+  font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   white-space: nowrap;
-  transition: color 0.25s ease, text-shadow 0.25s ease;
-  margin-bottom: -2px; /* Reemplaza el bottom:-2px para no descuadrar el layout */
+  transition: all 0.25s ease;
+  border-radius: 8px;
+  margin-bottom: 0; /* Se corrige la desalineación anterior */
 }
 
-/* 1. HOVER */
+/* HOVER Y ESTADO ACTIVO */
 .nav-links a:hover:not(.active) {
   color: #00d9ff;
   text-shadow: 0 0 10px rgba(0, 217, 255, 0.9);
+  background: rgba(0, 217, 255, 0.05);
 }
 
-/* 2. BOTÓN SELECCIONADO (.active) */
 .nav-links a.active {
   color: #00d9ff;
-  background: rgb(3, 0, 34);
-  border: 2px solid rgba(0, 217, 255, 0.8);
-  border-bottom: 2px solid rgb(3, 0, 34); /* Oculta la línea inferior justo debajo del botón */
-  border-radius: 12px 12px 0 0;
-  
+  background: rgba(0, 217, 255, 0.15);
+  border: 1px solid rgba(0, 217, 255, 0.8);
+  border-radius: 10px;
   text-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.25);
   z-index: 2;
 }
 
+/* Quita pseudo-elementos innecesarios en el nuevo diseño de cápsula */
+.nav-links a.active::before,
+.nav-links a.active::after {
+  display: none !important;
+}
 #servicios, 
 #gestion, 
 #auditorias, 
@@ -723,6 +763,7 @@ html {
     left: 20px;
     transform: none;
   }
+  
 
   .menu-toggle-btn {
     display: flex;

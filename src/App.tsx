@@ -86,7 +86,11 @@ function App() {
           <IoMenu className="menu-icon" />
         </button>
 
-        {/* Contenedor de links (Barra horizontal en Desktop, Menú desplegable en Móvil) */}
+        {/* LOGO A LA IZQUIERDA DE LA CÁPSULA */}
+        <a href="#" className="nav-logo">
+          <img src={logo} alt="SIGMA HSEQ Logo" />
+        </a>
+
         {/* Contenedor de links */}
         <div className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
           <a 
