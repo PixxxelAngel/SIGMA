@@ -983,3 +983,15 @@ html {
 
 
 
+@media (orientation: landscape) and (max-height: 600px) {
+  
+  .vr-person {
+    margin-top: -150px !important; /* Aumenta este valor si quieres bajar la imagen aún más */
+    transform: translateY(20px);  /* Empuja la imagen hacia abajo */
+  }
+  .neon-stroke-logo-b {
+    width: 70%;
+    right: -20%;
+    top: 75%;
+  }
+}
