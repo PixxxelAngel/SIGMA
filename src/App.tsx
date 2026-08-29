@@ -61,7 +61,7 @@ function App() {
   const [contactOpen, setContactOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(3)
-  const [activeNav, setActiveNav] = useState('servicios')
+  const [activeNav, setActiveNav] = useState(null)  
 
   const orderedCards = Array.from({ length: virtualCards.length }, (_, offset) => {
     const cardIndex = (selectedIndex + offset - 3 + virtualCards.length) % virtualCards.length
@@ -87,11 +87,18 @@ function App() {
           <IoMenu className="menu-icon" />
         </button>
 
-        {/* LOGO A LA IZQUIERDA DE LA CÁPSULA */}
-        <a href="#" className="nav-logo">
+        <a 
+          href="#" 
+          className="nav-logo"
+          onClick={(e) => {
+            e.preventDefault()
+            setActiveNav(null)
+            setMenuOpen(false)
+          }}
+        >
           <img src={logonav} alt="SIGMA HSEQ Logo" />
         </a>
-
+      
         {/* Contenedor de links */}
         <div className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
           <a 
@@ -100,7 +107,6 @@ function App() {
             onClick={(e) => {
               e.preventDefault()
               setActiveNav('servicios')
-              document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })
               setMenuOpen(false)
             }}
           >
@@ -113,7 +119,6 @@ function App() {
             onClick={(e) => {
               e.preventDefault()
               setActiveNav('gestion')
-              document.getElementById('gestion')?.scrollIntoView({ behavior: 'smooth' })
               setMenuOpen(false)
             }}
           >
@@ -126,7 +131,6 @@ function App() {
             onClick={(e) => {
               e.preventDefault()
               setActiveNav('auditorias')
-              document.getElementById('auditorias')?.scrollIntoView({ behavior: 'smooth' })
               setMenuOpen(false)
             }}
           >
@@ -139,7 +143,6 @@ function App() {
             onClick={(e) => {
               e.preventDefault()
               setActiveNav('simulaciones')
-              document.getElementById('simulaciones')?.scrollIntoView({ behavior: 'smooth' })
               setMenuOpen(false)
             }}
           >
@@ -148,163 +151,172 @@ function App() {
         </div>
       </nav>
 
-      <div className="hero">
-        <div className="logo-neon-wrap">
-          <span className="neon-stroke neon-stroke-logo-a" aria-hidden="true" />
-          <span className="neon-stroke neon-stroke-logo-b" aria-hidden="true" />
-          <img src={logo} alt="Logo" className="logo" />
-        </div>
-
-        <div className="hero-content">
-          <div className="vr-neon-wrap">
-            <span className="neon-stroke neon-stroke-vr-a" aria-hidden="true" />
-            <span className="neon-stroke neon-stroke-vr-b" aria-hidden="true" />
-            <span className="neon-stroke neon-stroke-vr-c" aria-hidden="true" />
-            <span className="neon-stroke neon-stroke-vr-d" aria-hidden="true" />
-            <img src={vrman} alt="Persona usando realidad virtual" className="vr-person" />
+      {activeNav === null && (
+        <div className="hero">
+          <div className="logo-neon-wrap">
+            <span className="neon-stroke neon-stroke-logo-a" aria-hidden="true" />
+            <span className="neon-stroke neon-stroke-logo-b" aria-hidden="true" />
+            <img src={logo} alt="Logo" className="logo" />
           </div>
 
-          <div className="hero-text">
-            <h1 className="slogan">
-              Prevención que se vive, seguridad que se aprende.
-            </h1>
+          <div className="hero-content">
+            <div className="vr-neon-wrap">
+              <span className="neon-stroke neon-stroke-vr-a" aria-hidden="true" />
+              <span className="neon-stroke neon-stroke-vr-b" aria-hidden="true" />
+              <span className="neon-stroke neon-stroke-vr-c" aria-hidden="true" />
+              <span className="neon-stroke neon-stroke-vr-d" aria-hidden="true" />
+              <img src={vrman} alt="Persona usando realidad virtual" className="vr-person" />
+            </div>
 
-            <p className="description">
-              Empresa especializada en consultoría, asesoría y formación en materia de Seguridad y Salud en el Trabajo (SST), Seguridad Vial, Medio Ambiente y Calidad con experiencias inmersivas de realidad virtual.
-            </p>
+            <div className="hero-text">
+              <h1 className="slogan">
+                Prevención que se vive, seguridad que se aprende.
+              </h1>
+
+              <p className="description">
+                Empresa especializada en consultoría, asesoría y formación en materia de Seguridad y Salud en el Trabajo (SST), Seguridad Vial, Medio Ambiente y Calidad con experiencias inmersivas de realidad virtual.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
 
 
       
 
-      <div id="servicios" className="services">
-        <h2 className="services-title">Nuestros Servicios</h2>
-        <ul className="services-list">
-          <li>Documentación, implementación y administración del Sistema de Gestión de Seguridad y Salud en el Trabajo (SST)</li>
-          <li>Documentación e implementación del PESV</li>
-          <li>Capacitaciones presenciales e inmersivas (realidad virtual) enfocada a SST</li>
-          <li>Gestión de tareas críticas: Alturas, confinados, eléctricos e izaje de cargas</li>
-          <li>Implementación de Planes de Prevención, Preparación y Respuesta ante Emergencias (PPPRE)</li>
-          <li>Elaboración del plan de Emergencias, Contingencias y Ayuda Mutua</li>
-          <li>Asesoría en la conformación, formación y entrenamiento de grupos de apoyo de emergencias</li>
-          <li>Investigación de accidentes de trabajo leves, graves y/o fatales</li>
-          <li>Plan de gestión Ambiental</li>
-        </ul>
-      </div>
-
-      <div id="gestion" className="gestion-organizacional">
-        <h2 className="gestion-organizacional-title">Gestión Organizacional</h2>
-        <ul className="gestion-organizacional-list">
-          <li>Estilos de vida y trabajo saludable</li>
-          <li>Organizaciones felices - Intervención</li>
-          <li>Clima organizacional</li>
-          <li>Comunicación asertiva, efectiva y empática</li>
-          <li>Liderazgo - Trabajo en equipo</li>
-        </ul>
-      </div>
-
-      <div id="auditorias" className="glow-panel">
-        <div className="glow-panel-inner">
-          <h3 className="glow-panel-title">AUDITORÍAS DE CUMPLIMIENTOS</h3>
-          <p className="glow-panel-subtitle">(ISO - SGSST - PESV)</p>
-        </div>
-      </div>
-
-      <div id="simulaciones" className="virtual-reality">        <div className="virtual-reality-header">
-          <h2 className="virtual-reality-title">SIMULACIONES INMERSIVAS CON REALIDAD VIRTUAL</h2>
-          <p className="virtual-reality-subtitle">Entrenamiento de alto impacto para prevención y seguridad laboral</p>
-        </div>
-
-        <div className="virtual-reality-grid">
-          <ul className="virtual-reality-track">
-            {orderedCards.map((card, offset) => {
-              const isCenter = offset === 3
-              const isNear = Math.abs(offset - 3) === 1
-              const isFar = Math.abs(offset - 3) >= 2
-
-              const className = [
-                'virtual-card',
-                isCenter ? 'is-center' : '',
-                isNear ? 'is-near' : '',
-                isFar ? 'is-far' : '',
-                card.title === 'EPP' ? 'epp-card' : '',
-                card.title === 'Seguridad Vial' ? 'seguridad-vial-card' : '',
-              ]
-                .filter(Boolean)
-                .join(' ')
-
-              return (
-                <li
-                  key={`${card.title}-${offset}`}
-                  className={className}
-                  style={{ backgroundImage: `linear-gradient(135deg, rgba(255, 216, 97, 0.18), rgba(118, 83, 255, 0.42)), url('${card.image}')` }}
-                  onClick={() => setSelectedIndex(card.originalIndex)}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      setSelectedIndex(card.originalIndex)
-                    }
-                  }}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={card.title}
-                >
-                  <span className="virtual-card-label">{card.title}</span>
-                </li>
-              )
-            })}
+      {/* SECCIONES CONDICIONALES */}
+      {activeNav === 'servicios' && (
+        <div id="servicios" className="services">
+          <h2 className="services-title">Nuestros Servicios</h2>
+          <ul className="services-list">
+            <li>Documentación, implementación y administración del Sistema de Gestión de Seguridad y Salud en el Trabajo (SST)</li>
+            <li>Documentación e implementación del PESV</li>
+            <li>Capacitaciones presenciales e inmersivas (realidad virtual) enfocada a SST</li>
+            <li>Gestión de tareas críticas: Alturas, confinados, eléctricos e izaje de cargas</li>
+            <li>Implementación de Planes de Prevención, Preparación y Respuesta ante Emergencias (PPPRE)</li>
+            <li>Elaboración del plan de Emergencias, Contingencias y Ayuda Mutua</li>
+            <li>Asesoría en la conformación, formación y entrenamiento de grupos de apoyo de emergencias</li>
+            <li>Investigación de accidentes de trabajo leves, graves y/o fatales</li>
+            <li>Plan de gestión Ambiental</li>
           </ul>
         </div>
+      )}
 
-        {virtualCards[selectedIndex].video && (
-          <div className="virtual-video-container">
-
-            <button
-              type="button"
-              className="video-arrow video-arrow-left"
-              onClick={() =>
-                setSelectedIndex(
-                  (selectedIndex - 1 + virtualCards.length) % virtualCards.length
-                )
-              }
-              aria-label="Video anterior"
-            >
-              <FaArrowLeft />
-            </button>
-
-            <div className="virtual-video">
-              <iframe
-                src={virtualCards[selectedIndex].video}
-                title={`Video de ${virtualCards[selectedIndex].title}`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-
-            <button
-              type="button"
-              className="video-arrow video-arrow-right"
-              onClick={() =>
-                setSelectedIndex(
-                  (selectedIndex + 1) % virtualCards.length
-                )
-              }
-              aria-label="Video siguiente"
-            >
-              <FaArrowRight />
-            </button>
-
-          </div>
-        )}
-
-          
-        <div className="virtual-reality-info">
-          <h3>{virtualCards[selectedIndex].title}</h3>
-          <p>{virtualCards[selectedIndex].description}</p>
+      {activeNav === 'gestion' && (
+        <div id="gestion" className="gestion-organizacional">
+          <h2 className="gestion-organizacional-title">Gestión Organizacional</h2>
+          <ul className="gestion-organizacional-list">
+            <li>Estilos de vida y trabajo saludable</li>
+            <li>Organizaciones felices - Intervención</li>
+            <li>Clima organizacional</li>
+            <li>Comunicación asertiva, efectiva y empática</li>
+            <li>Liderazgo - Trabajo en equipo</li>
+          </ul>
         </div>
-      </div>
+      )}
+
+      {activeNav === 'auditorias' && (
+        <div id="auditorias" className="glow-panel">
+          <div className="glow-panel-inner">
+            <h3 className="glow-panel-title">AUDITORÍAS DE CUMPLIMIENTOS</h3>
+            <p className="glow-panel-subtitle">(ISO - SGSST - PESV)</p>
+          </div>
+        </div>
+      )}
+
+      {activeNav === 'simulaciones' && (
+        <div id="simulaciones" className="virtual-reality">
+          <div className="virtual-reality-header">
+            <h2 className="virtual-reality-title">SIMULACIONES INMERSIVAS CON REALIDAD VIRTUAL</h2>
+            <p className="virtual-reality-subtitle">Entrenamiento de alto impacto para prevención y seguridad laboral</p>
+          </div>
+
+          <div className="virtual-reality-grid">
+            <ul className="virtual-reality-track">
+              {orderedCards.map((card, offset) => {
+                const isCenter = offset === 3
+                const isNear = Math.abs(offset - 3) === 1
+                const isFar = Math.abs(offset - 3) >= 2
+
+                const className = [
+                  'virtual-card',
+                  isCenter ? 'is-center' : '',
+                  isNear ? 'is-near' : '',
+                  isFar ? 'is-far' : '',
+                  card.title === 'EPP' ? 'epp-card' : '',
+                  card.title === 'Seguridad Vial' ? 'seguridad-vial-card' : '',
+                ]
+                  .filter(Boolean)
+                  .join(' ')
+
+                return (
+                  <li
+                    key={`${card.title}-${offset}`}
+                    className={className}
+                    style={{ backgroundImage: `linear-gradient(135deg, rgba(255, 216, 97, 0.18), rgba(118, 83, 255, 0.42)), url('${card.image}')` }}
+                    onClick={() => setSelectedIndex(card.originalIndex)}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        setSelectedIndex(card.originalIndex)
+                      }
+                    }}
+                    tabIndex={0}
+                    role="button"
+                    aria-label={card.title}
+                  >
+                    <span className="virtual-card-label">{card.title}</span>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+
+          {virtualCards[selectedIndex].video && (
+            <div className="virtual-video-container">
+              <button
+                type="button"
+                className="video-arrow video-arrow-left"
+                onClick={() =>
+                  setSelectedIndex(
+                    (selectedIndex - 1 + virtualCards.length) % virtualCards.length
+                  )
+                }
+                aria-label="Video anterior"
+              >
+                <FaArrowLeft />
+              </button>
+
+              <div className="virtual-video">
+                <iframe
+                  src={virtualCards[selectedIndex].video}
+                  title={`Video de ${virtualCards[selectedIndex].title}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+
+              <button
+                type="button"
+                className="video-arrow video-arrow-right"
+                onClick={() =>
+                  setSelectedIndex(
+                    (selectedIndex + 1) % virtualCards.length
+                  )
+                }
+                aria-label="Video siguiente"
+              >
+                <FaArrowRight />
+              </button>
+            </div>
+          )}
+
+          <div className="virtual-reality-info">
+            <h3>{virtualCards[selectedIndex].title}</h3>
+            <p>{virtualCards[selectedIndex].description}</p>
+          </div>
+        </div>
+      )}
 
       <div className="floating-contact">
         {contactOpen && (

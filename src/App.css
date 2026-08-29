@@ -70,15 +70,17 @@ body {
   position: relative;
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  padding: 8px 10px; /* CAMBIADO: De 10px 18px a 8px 10px */
-  font-size: clamp(0.68rem, 0.9vw, 0.85rem); /* CAMBIADO: Ajusta el texto según la pantalla */
+  padding: 8px 10px;
+  font-size: clamp(0.68rem, 0.9vw, 0.85rem);
   font-weight: 500;
-  letter-spacing: 0.02em; /* CAMBIADO: De 0.05em a 0.02em para reducir el ancho del texto */
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   white-space: nowrap;
   transition: all 0.25s ease;
   border-radius: 8px;
   margin-bottom: 0;
+  cursor: pointer; /* <--- Asegura que muestre la mano al pasar el mouse */
+  user-select: none;
 }
 
 /* HOVER Y ESTADO ACTIVO */
@@ -91,7 +93,6 @@ body {
 .nav-links a.active {
   color: #00d9ff;
   background: rgba(0, 217, 255, 0.15);
-
   border-radius: 10px;
   text-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
   box-shadow: 0 0 10px rgba(0, 217, 255, 0.25);
@@ -103,16 +104,24 @@ body {
 .nav-links a.active::after {
   display: none !important;
 }
-#servicios, 
-#gestion, 
-#auditorias, 
-#simulaciones {
-  scroll-margin-top: 80px;
+
+/* AGREGAR AL FINAL DE TU CSS */
+.services,
+.gestion-organizacional,
+.glow-panel,
+.virtual-reality {
+  animation: sectionFadeIn 0.35s ease-in-out forwards;
 }
 
-/* Suavizar desplazamiento al hacer clic */
-html {
-  scroll-behavior: smooth;
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -982,7 +991,7 @@ html {
 }
 
 
-
+/* Mobile Horizontal */
 @media (orientation: landscape) and (max-height: 600px) {
   
   .vr-person {
