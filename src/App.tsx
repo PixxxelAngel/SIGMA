@@ -61,7 +61,8 @@ function App() {
   const [contactOpen, setContactOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(3)
-  const [activeNav, setActiveNav] = useState(null)  
+  const [activeNav, setActiveNav] = useState<string | null>(null)
+
 
   const orderedCards = Array.from({ length: virtualCards.length }, (_, offset) => {
     const cardIndex = (selectedIndex + offset - 3 + virtualCards.length) % virtualCards.length
