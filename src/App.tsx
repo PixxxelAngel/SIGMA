@@ -149,6 +149,18 @@ function App() {
           >
             Simulaciones VR
           </a>
+
+          <a 
+            href="#experiencia-clientes" 
+            className={activeNav === 'experiencia-clientes' ? 'active' : ''}
+            onClick={(e) => {
+              e.preventDefault()
+              setActiveNav('experiencia-clientes')
+              setMenuOpen(false)
+            }}
+          >
+            Experiencia clientes
+          </a>
         </div>
       </nav>
 
@@ -316,6 +328,15 @@ function App() {
             <h3>{virtualCards[selectedIndex].title}</h3>
             <p>{virtualCards[selectedIndex].description}</p>
           </div>
+        </div>
+      )}
+
+      {activeNav === 'experiencia-clientes' && (
+        <div id="experiencia-clientes" className="services">
+          <h2 className="services-title">Experiencia clientes</h2>
+          <p>
+            Conoce las experiencias y resultados de nuestros clientes.
+          </p>
         </div>
       )}
 
