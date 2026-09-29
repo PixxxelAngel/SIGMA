@@ -6,7 +6,6 @@ import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
 import { FaArrowRight } from 'react-icons/fa6'
 import { FaArrowLeft } from 'react-icons/fa6'
 import { IoMenu } from 'react-icons/io5'
-import { FiRefreshCw } from 'react-icons/fi'
 import logo from './assets/logo.png'
 import logonav from './assets/logonav.png'
 import vrman from './assets/vrman.png'
@@ -66,7 +65,7 @@ type DriveFile = {
   webViewLink?: string
 }
 
-const driveFolderId = '1FSRF44EoyivJkukw-HACx1kG6VRZIwPR'
+const driveFolderId = '18mAoiP8MPQPwT5ovBOIa7NHVVifbgPHZ'
 const driveApiKey = import.meta.env.VITE_GOOGLE_DRIVE_API_KEY || 'AIzaSyDVks5hWLPxsbRMMeLrPgayM9kWS-m_sZ4'
 
 function App() {
@@ -384,16 +383,6 @@ function App() {
         <section id="experiencia-clientes" className="client-experience">
           <h2 className="services-title">Experiencia clientes</h2>
           <p className="client-experience-intro">Conoce las experiencias y resultados de nuestros clientes.</p>
-
-          <button
-            type="button"
-            className="drive-refresh-button"
-            onClick={() => void loadDriveFiles()}
-            disabled={driveLoading}
-          >
-            <FiRefreshCw aria-hidden="true" className={driveLoading ? 'is-spinning' : ''} />
-            {driveLoading ? 'Actualizando...' : 'Actualizar galería'}
-          </button>
 
           {driveLoading && driveFiles.length === 0 && (
             <p className="drive-status">Cargando imágenes...</p>
