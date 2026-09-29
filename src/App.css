@@ -109,7 +109,8 @@ body {
 .services,
 .gestion-organizacional,
 .glow-panel,
-.virtual-reality {
+.virtual-reality,
+.client-experience {
   animation: sectionFadeIn 0.35s ease-in-out forwards;
 }
 
@@ -760,6 +761,117 @@ body {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.client-experience {
+  width: min(100%, 1100px);
+  margin-top: 40px;
+  text-align: center;
+}
+
+.client-experience-intro {
+  margin: -8px auto 22px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+}
+
+.drive-refresh-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 26px;
+  padding: 10px 16px;
+  border: 1px solid rgba(0, 217, 255, 0.65);
+  border-radius: 10px;
+  background: rgba(0, 217, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.drive-refresh-button:hover:not(:disabled) {
+  background: rgba(0, 217, 255, 0.24);
+  transform: translateY(-2px);
+}
+
+.drive-refresh-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.is-spinning {
+  animation: driveSpin 0.9s linear infinite;
+}
+
+@keyframes driveSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.drive-status {
+  margin: 8px auto 24px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.drive-error {
+  color: #ffb4b4;
+}
+
+.drive-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  width: 100%;
+}
+
+.drive-gallery-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 217, 255, 0.24);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  text-decoration: none;
+  text-align: left;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.drive-gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 217, 255, 0.8);
+}
+
+.drive-gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.drive-gallery-item span {
+  overflow: hidden;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drive-file-link {
+  padding: 18px;
+  border: 1px solid rgba(255, 214, 87, 0.35);
+  border-radius: 12px;
+  color: #ffe97a;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
 
 
 @media (max-width: 600px), (max-height: 600px) and (orientation: landscape) {
@@ -929,6 +1041,21 @@ body {
   .services {
     width: 100%;
     padding: 22px 18px;
+  }
+
+  .client-experience {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .drive-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .drive-gallery-item span {
+    padding: 10px;
+    font-size: 0.8rem;
   }
 
   .gestion-organizacional {

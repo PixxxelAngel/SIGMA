@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { AiOutlineMail } from 'react-icons/ai'
 import { FaWhatsapp } from 'react-icons/fa'
 import { PiInstagramLogoBold } from 'react-icons/pi'
@@ -6,6 +6,7 @@ import { MdOutlineLocalPhone, MdOutlineSupportAgent } from 'react-icons/md'
 import { FaArrowRight } from 'react-icons/fa6'
 import { FaArrowLeft } from 'react-icons/fa6'
 import { IoMenu } from 'react-icons/io5'
+import { FiRefreshCw } from 'react-icons/fi'
 import logo from './assets/logo.png'
 import logonav from './assets/logonav.png'
 import vrman from './assets/vrman.png'
@@ -57,11 +58,59 @@ const virtualCards = [
   },
 ]
 
+type DriveFile = {
+  id: string
+  name: string
+  mimeType: string
+  webContentLink?: string
+  webViewLink?: string
+}
+
+const driveFolderId = '1FSRF44EoyivJkukw-HACx1kG6VRZIwPR'
+const driveApiKey = import.meta.env.VITE_GOOGLE_DRIVE_API_KEY || 'AIzaSyDVks5hWLPxsbRMMeLrPgayM9kWS-m_sZ4'
+
 function App() {
   const [contactOpen, setContactOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(3)
   const [activeNav, setActiveNav] = useState<string | null>(null)
+  const [driveFiles, setDriveFiles] = useState<DriveFile[]>([])
+  const [driveLoading, setDriveLoading] = useState(false)
+  const [driveError, setDriveError] = useState<string | null>(null)
+
+  const loadDriveFiles = useCallback(async () => {
+    const query = encodeURIComponent(`'${driveFolderId}' in parents and trashed = false`)
+    const fields = encodeURIComponent('files(id,name,mimeType,webContentLink,webViewLink)')
+    const endpoint = `https://www.googleapis.com/drive/v3/files?q=${query}&fields=${fields}&orderBy=name&key=${driveApiKey}`
+
+    setDriveLoading(true)
+    setDriveError(null)
+
+    try {
+      const response = await fetch(endpoint)
+      if (!response.ok) {
+        throw new Error('No fue posible cargar las imágenes de Google Drive.')
+      }
+
+      const data: { files?: DriveFile[] } = await response.json()
+      setDriveFiles((data.files ?? []).sort((first, second) => first.name.localeCompare(second.name)))
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') return
+      setDriveError(error instanceof Error ? error.message : 'Ocurrió un error al cargar la galería.')
+    } finally {
+      setDriveLoading(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (activeNav !== 'experiencia-clientes') return
+
+    const refreshId = window.setTimeout(() => {
+      void loadDriveFiles()
+    }, 0)
+
+    return () => window.clearTimeout(refreshId)
+  }, [activeNav, loadDriveFiles])
 
 
   const orderedCards = Array.from({ length: virtualCards.length }, (_, offset) => {
@@ -332,12 +381,62 @@ function App() {
       )}
 
       {activeNav === 'experiencia-clientes' && (
-        <div id="experiencia-clientes" className="services">
+        <section id="experiencia-clientes" className="client-experience">
           <h2 className="services-title">Experiencia clientes</h2>
-          <p>
-            Conoce las experiencias y resultados de nuestros clientes.
-          </p>
-        </div>
+          <p className="client-experience-intro">Conoce las experiencias y resultados de nuestros clientes.</p>
+
+          <button
+            type="button"
+            className="drive-refresh-button"
+            onClick={() => void loadDriveFiles()}
+            disabled={driveLoading}
+          >
+            <FiRefreshCw aria-hidden="true" className={driveLoading ? 'is-spinning' : ''} />
+            {driveLoading ? 'Actualizando...' : 'Actualizar galería'}
+          </button>
+
+          {driveLoading && driveFiles.length === 0 && (
+            <p className="drive-status">Cargando imágenes...</p>
+          )}
+
+          {driveError && (
+            <p className="drive-status drive-error" role="alert">{driveError}</p>
+          )}
+
+          {!driveLoading && !driveError && driveFiles.length === 0 && (
+            <p className="drive-status">Aún no hay archivos en esta carpeta.</p>
+          )}
+
+          <div className="drive-gallery">
+            {driveFiles.map((file) => {
+              const isImage = file.mimeType.startsWith('image/')
+              const imageUrl = `https://drive.google.com/thumbnail?id=${file.id}&sz=w1200`
+
+              return isImage ? (
+                <a
+                  className="drive-gallery-item"
+                  href={file.webViewLink ?? `https://drive.google.com/file/d/${file.id}/view`}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={file.id}
+                >
+                  <img src={imageUrl} alt={file.name} loading="lazy" />
+                  <span>{file.name}</span>
+                </a>
+              ) : (
+                <a
+                  className="drive-file-link"
+                  href={file.webViewLink ?? file.webContentLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={file.id}
+                >
+                  {file.name}
+                </a>
+              )
+            })}
+          </div>
+        </section>
       )}
 
       <div className="floating-contact">
